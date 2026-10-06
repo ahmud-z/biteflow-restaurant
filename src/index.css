@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+body {
+  background-color: #fffaf7;
+  font-family: poppins;
+}
+
+.section-container {
+  @apply max-w-7xl mx-auto px-6;
+}
