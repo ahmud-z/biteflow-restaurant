@@ -1,3 +1,4 @@
+import { TypeAnimation } from "react-type-animation";
 const Hero = () => {
     return (
         <main>
@@ -8,9 +9,30 @@ const Hero = () => {
                         </span>
                         Authentic taste & Healthy meals
                     </div>
-                    <h1 className="max-w-xl text-5xl font-bold leading-[.98] tracking-[-.06em] sm:text-6xl lg:text-7xl">Good food.<br /><span className="text-[#ff5b2e]">Better mood.</span></h1>
+                    <h1 className="max-w-xl text-5xl font-bold leading-[.98] tracking-[-0.06em] sm:text-6xl lg:text-7xl">
+                        Good food.
+                        <br />
+
+                        <span className="text-[#ff5b2e]">
+                            <TypeAnimation
+                                sequence={[
+                                    "Better mood.",
+                                    2000,
+                                    "",
+                                    500,
+                                    "Best moments.",
+                                    2000,
+                                    "",
+                                    500,
+                                ]}
+                                speed={50}
+                                repeat={Infinity}
+                                cursor={true}
+                            />
+                        </span>
+                    </h1>
                     <p className="mt-6 max-w-md text-lg leading-7 text-stone-500">
-                        Discover the best food and drinks from local spots, delivered right to your door.
+                        From our Kitchen in Old Dhaka to your table. Warm spices, generous portions, and recipes worth coming back for.
                     </p>
                 </div>
                 <div>
