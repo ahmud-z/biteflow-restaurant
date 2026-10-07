@@ -2,9 +2,8 @@ import { Heart, Mail, Phone } from "lucide-react";
 
 const Footer = () => {
     return (
-        <footer className="mt-20 bg-[#241814] text-orange-50">
+        <footer className="bg-[#241814] text-orange-50">
             <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
-
                 {/* Brand */}
                 <div>
                     <div className="mb-4 flex items-center gap-3">
