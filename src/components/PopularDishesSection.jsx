@@ -1,5 +1,7 @@
 import { ChevronRight } from 'lucide-react';
 import DishCard from '../components/DishCard'
+import { dishes } from '../data/dishes';
+import { Link } from 'react-router';
 const PopularDishesSection = () => {
     return (
         <section className="section-container py-20">
@@ -22,11 +24,12 @@ const PopularDishesSection = () => {
                 </button>
             </div>
 
-            <div className='grid grid-cols-4 justify-between gap-6'>
-                <DishCard />
-                <DishCard />
-                <DishCard />
-                <DishCard />
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {dishes.slice(0, 4).map((dish,) => (
+                    <Link to={`/dish/${dish.slug}`} key={dish.id}>
+                        <DishCard dish={dish} />
+                    </Link>
+                ))}
             </div>
 
         </section>
