@@ -1,3 +1,4 @@
+import { HandPlatter } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 const Hero = () => {
     return (
@@ -5,7 +6,8 @@ const Hero = () => {
             <section className="section-container grid items-center gap-10 pb-12 pt-10 lg:grid-cols-[1.04fr_.96fr] lg:pb-20 lg:pt-16">
                 <div>
                     <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-orange-100 px-3 py-1.5 text-xs font-bold text-[#e84c23]">
-                        <span className="size-2 rounded-full bg-[#ff5b2e]">
+                        <span className="rounded-full ">
+                            <HandPlatter size={18} />
                         </span>
                         Authentic taste & Healthy meals
                     </div>

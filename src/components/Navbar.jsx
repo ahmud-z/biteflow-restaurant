@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Search, ShoppingBag, Menu, X } from "lucide-react";
+import { Search, ShoppingBag, Menu, X, UtensilsCrossed } from "lucide-react";
 import { Link } from 'react-router';
 
 const Navbar = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
                 {/* Logo */}
                 <Link to={"/"} className="flex items-center gap-3 text-left">
                     <span className="grid size-10 place-items-center rounded-full bg-[#f4511e] text-xl text-white shadow-sm">
-                        B
+                        <UtensilsCrossed />
                     </span>
 
                     <span>
@@ -31,24 +31,14 @@ const Navbar = () => {
 
                 {/* Desktop Navigation */}
                 <nav className="hidden items-center gap-8 text-sm font-semibold text-stone-600 lg:flex">
-                    <Link to={"/home"} className="cursor-pointer hover:text-[#f4511e]">Home</Link>
+                    <Link to={"/"} className="cursor-pointer hover:text-[#f4511e]">Home</Link>
                     <Link to={"/menu"} className="cursor-pointer hover:text-[#f4511e]">Menu</Link>
-                    <Link to={"/about-us"} className="cursor-pointer hover:text-[#f4511e]">About Us</Link>
+                    <Link to={"/about"} className="cursor-pointer hover:text-[#f4511e]">About Us</Link>
                     <Link to={"/contact"} className="cursor-pointer hover:text-[#f4511e]">Contact</Link>
                 </nav>
 
                 {/* Right Actions */}
                 <div className="flex items-center gap-2 sm:gap-3">
-
-                    {/* Search */}
-                    <button
-                        className="hidden size-10 place-items-center rounded-full text-stone-500 hover:bg-orange-50 sm:grid"
-                        aria-label="Search"
-                    >
-                        <Search size={20} />
-                    </button>
-
-
                     {/* Login */}
                     <Link to={"/login"} className="hidden rounded-full px-3 py-2 text-sm font-semibold text-stone-600 hover:bg-orange-50 sm:block">
                         Login

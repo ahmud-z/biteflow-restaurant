@@ -17,11 +17,11 @@ const PopularDishesSection = () => {
                     </h2>
                 </div>
 
-                <button
+                <Link to={"/menu"}
                     className="hidden items-center gap-1 text-sm font-bold text-[#f4511e] sm:flex"
                 >
                     View full menu <ChevronRight />
-                </button>
+                </Link>
             </div>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

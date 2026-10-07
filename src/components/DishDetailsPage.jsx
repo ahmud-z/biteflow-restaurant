@@ -11,11 +11,12 @@ import {
     Flame,
     Heart,
 } from "lucide-react";
-import { Link, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 
 const DishDetailsPage = () => {
     const [quantity, setQuantity] = useState(1);
     const [liked, setLiked] = useState(false);
+    const navigate = useNavigate();
 
     const { slug } = useParams();
     const dish = dishes.find((dish) => dish.slug === slug);
@@ -36,13 +37,13 @@ const DishDetailsPage = () => {
 
             {/* Back Navigation */}
             <div className="mx-auto max-w-7xl px-5 pt-8 lg:px-8">
-                <Link
-                    to="/"
+                <button
+                    onClick={() => navigate(-1)}
                     className="inline-flex items-center gap-2 text-sm font-bold text-stone-500 transition hover:text-[#f4511e]"
                 >
                     <ArrowLeft size={18} />
                     Back
-                </Link>
+                </button>
             </div>
 
             {/* Main Content */}
