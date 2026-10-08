@@ -52,7 +52,7 @@ export const dishes = [
         rating: 4.8,
         reviews: 51,
         desc: 'Tiger prawns simmered in silky coconut cream and green chilli.',
-        image: ""
+        image: "https://myfancypantry.com/wp-content/uploads/2012/04/untitled-04578.jpg"
     },
     {
         id: 6,
@@ -63,7 +63,7 @@ export const dishes = [
         rating: 4.6,
         reviews: 44,
         desc: 'Smoky patty, melted cheese, fresh vegetables and house sauce.',
-        image: ""
+        image: "https://thetastefulpantry.com/wp-content/uploads/2024/02/Beef-Burger-The-Tasteful-Pantry.jpg"
     },
     {
         id: 7,
@@ -74,7 +74,7 @@ export const dishes = [
         rating: 4.7,
         reviews: 88,
         desc: 'Crisp shells with tangy tamarind water, potato and chickpea filling.',
-        image: ""
+        image: "https://static.vecteezy.com/system/resources/previews/043/118/108/large_2x/fuchka-or-pani-puri-and-gol-gappay-with-sour-water-served-in-dish-isolated-on-table-top-view-of-indian-bangladeshi-and-pakistani-street-food-photo.JPG"
     },
     {
         id: 8,
