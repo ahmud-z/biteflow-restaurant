@@ -22,7 +22,7 @@ const CartPage = () => {
                         <h2 className="mt-4 text-xl font-bold text-stone-800">Your cart is empty</h2>
                         <p className="mt-2 text-stone-500">Add something delicious from our menu.</p>
                         <Link
-                            to="/menu"
+                            to="/dishes"
                             className="mt-6 inline-flex rounded-xl bg-[#f4511e] px-5 py-3 font-bold text-white hover:bg-[#e94a1b]"
                         >
                             Browse menu
