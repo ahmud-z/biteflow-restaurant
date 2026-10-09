@@ -11,12 +11,14 @@ import {
     Flame,
     Heart,
 } from "lucide-react";
-import { Link, useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
+import { useCart } from "../context/CartContext";
 
 const DishDetailsPage = () => {
     const [quantity, setQuantity] = useState(1);
     const [liked, setLiked] = useState(false);
     const navigate = useNavigate();
+    const { addToCart } = useCart();
 
     const { slug } = useParams();
     const dish = dishes.find((dish) => dish.slug === slug);
@@ -39,7 +41,7 @@ const DishDetailsPage = () => {
             <div className="mx-auto max-w-7xl px-5 pt-8 lg:px-8">
                 <button
                     onClick={() => navigate(-1)}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-stone-500 transition hover:text-[#f4511e]"
+                    className="inline-flex cursor-pointer items-center gap-2 text-sm font-bold text-stone-500 transition hover:text-[#f4511e]"
                 >
                     <ArrowLeft size={18} />
                     Back
@@ -134,44 +136,6 @@ const DishDetailsPage = () => {
                         </p>
 
                         {/* Info */}
-                        <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3">
-
-                            <div className="rounded-2xl border border-orange-100 bg-white p-4">
-                                <Clock3 className="mb-2 size-5 text-[#f4511e]" />
-
-                                <p className="text-xs font-semibold text-stone-400">
-                                    Preparation
-                                </p>
-
-                                <p className="mt-1 text-sm font-black text-stone-700">
-                                    {dish.prepTime}
-                                </p>
-                            </div>
-
-                            <div className="rounded-2xl border border-orange-100 bg-white p-4">
-                                <Flame className="mb-2 size-5 text-[#f4511e]" />
-
-                                <p className="text-xs font-semibold text-stone-400">
-                                    Calories
-                                </p>
-
-                                <p className="mt-1 text-sm font-black text-stone-700">
-                                    {dish.calories}
-                                </p>
-                            </div>
-
-                            <div className="col-span-2 rounded-2xl border border-orange-100 bg-white p-4 sm:col-span-1">
-                                <Star className="mb-2 size-5 fill-[#f6a623] text-[#f6a623]" />
-
-                                <p className="text-xs font-semibold text-stone-400">
-                                    Rating
-                                </p>
-
-                                <p className="mt-1 text-sm font-black text-stone-700">
-                                    {dish.rating} / 5
-                                </p>
-                            </div>
-                        </div>
 
                         {/* Divider */}
                         <div className="my-8 border-t border-orange-100" />
@@ -203,27 +167,16 @@ const DishDetailsPage = () => {
                             </div>
 
                             {/* Add To Cart */}
-                            <button className="flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-[#f4511e] px-6 font-bold text-white shadow-lg shadow-orange-200 transition hover:-translate-y-0.5 hover:bg-[#e94a1b] active:translate-y-0">
+                            <button
+                                onClick={() => addToCart(dish, quantity)}
+                                className="flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-[#f4511e] px-6 font-bold text-white shadow-lg shadow-orange-200 transition hover:-translate-y-0.5 hover:bg-[#e94a1b] active:translate-y-0"
+                            >
                                 <ShoppingBag size={19} />
                                 Add to cart
                                 <span className="ml-1 opacity-80">
                                     · ৳{totalPrice}
                                 </span>
                             </button>
-                        </div>
-
-                        {/* Delivery Note */}
-                        <div className="mt-5 flex items-center gap-3 rounded-2xl bg-[#fff1e9] px-4 py-3 text-sm text-stone-600">
-                            <div className="grid size-9 shrink-0 place-items-center rounded-full bg-white text-[#f4511e]">
-                                <Clock3 size={17} />
-                            </div>
-
-                            <p>
-                                <span className="font-bold text-stone-800">
-                                    Freshly prepared
-                                </span>{" "}
-                                and delivered hot from our Old Dhaka kitchen.
-                            </p>
                         </div>
                     </div>
                 </div>

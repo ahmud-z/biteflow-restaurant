@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { Search, ShoppingBag, Menu, X, UtensilsCrossed } from "lucide-react";
+import { useState } from "react";
+import { ShoppingBag, Menu, X, UtensilsCrossed } from "lucide-react";
 import { Link } from 'react-router';
+import { useCart } from "../context/CartContext";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
-    // Replace this with your actual cart state later
-    const cartCount = 5;
+    const { itemCount } = useCart();
 
     return (
         <header className="sticky top-0 z-40  shadow-xs bg-white backdrop-blur-md">
@@ -32,7 +32,7 @@ const Navbar = () => {
                 {/* Desktop Navigation */}
                 <nav className="hidden items-center gap-8 text-sm font-semibold text-stone-600 lg:flex">
                     <Link to={"/"} className="cursor-pointer hover:text-[#f4511e]">Home</Link>
-                    <Link to={"/menu"} className="cursor-pointer hover:text-[#f4511e]">Menu</Link>
+                    <Link to={"/dishes"} className="cursor-pointer hover:text-[#f4511e]">Menu</Link>
                     <Link to={"/about"} className="cursor-pointer hover:text-[#f4511e]">About Us</Link>
                     <Link to={"/contact"} className="cursor-pointer hover:text-[#f4511e]">Contact</Link>
                 </nav>
@@ -50,18 +50,19 @@ const Navbar = () => {
                     </Link>
 
                     {/* Cart */}
-                    <button
+                    <Link
+                        to="/cart"
                         className="relative grid size-10 place-items-center rounded-full bg-white text-stone-700 shadow-sm ring-1 ring-orange-100"
                         aria-label="Shopping cart"
                     >
                         <ShoppingBag size={20} />
 
-                        {cartCount > 0 && (
+                        {itemCount > 0 && (
                             <span className="absolute -right-1 -top-1 grid size-5 place-items-center rounded-full bg-[#e33c1b] text-[10px] font-semibold text-white">
-                                {cartCount}
+                                {itemCount}
                             </span>
                         )}
-                    </button>
+                    </Link>
 
                     {/* Mobile Menu Button */}
                     <button

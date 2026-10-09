@@ -1,7 +1,15 @@
 import { Plus, Star } from "lucide-react";
-import React from "react";
+import { useCart } from "../context/CartContext";
 
 const DishCard = ({ dish }) => {
+    const { addToCart } = useCart();
+
+    const handleAddToCart = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        addToCart(dish);
+    };
+
     return (
         <div className="group flex flex-col justify-between overflow-hidden rounded-xl border border-orange-100 bg-white shadow-sm transition-all duration-300 min-h-[400px] hover:-translate-y-1 hover:shadow-md hover:shadow-orange-100/60">
 
@@ -61,6 +69,7 @@ const DishCard = ({ dish }) => {
             {/* Button */}
             <div className="px-5 pb-5">
                 <button
+                    onClick={handleAddToCart}
                     className="
                         flex h-11 w-full items-center justify-center gap-2
                         rounded-xl
