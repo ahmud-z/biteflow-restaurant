@@ -1,6 +1,7 @@
 import { Badge, CheckCircle2, ChevronRight, Clock3 } from "lucide-react";
 import { categoryList } from "../data/categoryList";
 import { Link } from "react-router";
+import { dishes } from "../data/dishes";
 
 const BrowseByCategorySection = () => {
     return (
@@ -20,25 +21,31 @@ const BrowseByCategorySection = () => {
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7">
-                    {categoryList.map((category) => (
-                        <Link
-                            to={`#`}
-                            key={category.name}
-                            className="group rounded-2xl border border-orange-100 bg-white p-4 text-center shadow-sm transition hover:-translate-y-1 hover:border-orange-200 hover:shadow-md"
-                        >
-                            <span className="mx-auto mb-3 grid size-14 place-items-center rounded-2xl bg-[#fff4eb] text-3xl transition group-hover:scale-105">
-                                {category.icon}
-                            </span>
+                    {categoryList.map((category) => {
+                        const dishCount = dishes.filter(
+                            (dish) => dish.category === category.name
+                        ).length;
 
-                            <span className="block text-sm font-bold">
-                                {category.name}
-                            </span>
+                        return (
+                            <Link
+                                to={`/dishes?category=${encodeURIComponent(category.name)}`}
+                                key={category.name}
+                                className="group rounded-2xl border border-orange-100 bg-white p-4 text-center shadow-sm transition hover:-translate-y-1 hover:border-orange-200 hover:shadow-md"
+                            >
+                                <span className="mx-auto mb-3 grid size-14 place-items-center rounded-2xl bg-[#fff4eb] text-3xl transition group-hover:scale-105">
+                                    {category.icon}
+                                </span>
 
-                            <span className="mt-1 block text-xs text-stone-400">
-                                {category.count}
-                            </span>
-                        </Link>
-                    ))}
+                                <span className="block text-sm font-bold">
+                                    {category.name}
+                                </span>
+
+                                <span className="mt-1 block text-xs text-stone-400">
+                                    {dishCount} {dishCount === 1 ? "dish" : "dishes"}
+                                </span>
+                            </Link>
+                        );
+                    })}
                 </div>
             </section>
 
