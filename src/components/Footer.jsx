@@ -2,7 +2,7 @@ import { Heart, Mail, Phone } from "lucide-react";
 
 const Footer = () => {
     return (
-        <footer className="bg-[#241814] text-orange-50">
+        <footer className="bg-[#241814] text-orange-50 pt-6">
             <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
                 {/* Brand */}
                 <div>
@@ -90,7 +90,7 @@ const Footer = () => {
             </div>
 
             {/* Copyright */}
-            <div className="border-t border-white/10 px-5 py-5 text-center text-xs text-orange-100/40">
+            <div className="border-t border-white/10 px-5 py-4 text-center text-xs text-orange-100/40">
                 © {new Date().getFullYear()} BiteFlow Hotel & Restaurant.
             </div>
         </footer>

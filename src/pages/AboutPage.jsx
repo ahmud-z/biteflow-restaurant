@@ -42,7 +42,7 @@ const AboutPage = () => {
 
                         <div className="mt-8 flex flex-wrap gap-3">
                             <Link
-                                to="/menu"
+                                to="/dishes"
                                 className="inline-flex items-center gap-2 rounded-xl bg-[#f4511e] px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-[#d94113]"
                             >
                                 Explore our menu
@@ -143,11 +143,7 @@ const AboutPage = () => {
 
                 <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
                     {/* Card */}
-                    <div className="rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
-                        <span className="grid size-12 place-items-center rounded-2xl bg-[#fff0e9] text-[#f4511e]">
-                            <Utensils size={22} />
-                        </span>
-
+                    <div className="rounded-3xl border border-orange-100 bg-white px-6 py-3 shadow-sm">
                         <h3 className="mt-5 text-lg font-black">
                             Quality first
                         </h3>
@@ -158,11 +154,7 @@ const AboutPage = () => {
                         </p>
                     </div>
 
-                    <div className="rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
-                        <span className="grid size-12 place-items-center rounded-2xl bg-[#fff0e9] text-[#f4511e]">
-                            <Heart size={22} />
-                        </span>
-
+                    <div className="rounded-3xl border border-orange-100 bg-white px-6 py-3 shadow-sm">
                         <h3 className="mt-5 text-lg font-black">
                             Made with care
                         </h3>
@@ -173,11 +165,7 @@ const AboutPage = () => {
                         </p>
                     </div>
 
-                    <div className="rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
-                        <span className="grid size-12 place-items-center rounded-2xl bg-[#fff0e9] text-[#f4511e]">
-                            <ShieldCheck size={22} />
-                        </span>
-
+                    <div className="rounded-3xl border border-orange-100 bg-white px-6 py-3 shadow-sm">
                         <h3 className="mt-5 text-lg font-black">
                             Honest food
                         </h3>
@@ -188,11 +176,7 @@ const AboutPage = () => {
                         </p>
                     </div>
 
-                    <div className="rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
-                        <span className="grid size-12 place-items-center rounded-2xl bg-[#fff0e9] text-[#f4511e]">
-                            <Clock3 size={22} />
-                        </span>
-
+                    <div className="rounded-3xl border border-orange-100 bg-white px-6 py-3 shadow-sm">
                         <h3 className="mt-5 text-lg font-black">
                             Always improving
                         </h3>
@@ -295,7 +279,7 @@ const AboutPage = () => {
                     </p>
 
                     <Link
-                        to="/menu"
+                        to="/dishes"
                         className="mt-7 inline-flex items-center gap-2 rounded-xl bg-[#f4511e] px-6 py-3.5 text-sm font-bold text-white shadow-sm transition hover:bg-[#d94113]"
                     >
                         Browse the menu

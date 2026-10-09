@@ -17,7 +17,7 @@ const PopularDishesSection = () => {
                     </h2>
                 </div>
 
-                <Link to={"/menu"}
+                <Link to={"/dishes"}
                     className="hidden items-center gap-1 text-sm font-bold text-[#f4511e] sm:flex"
                 >
                     View full menu <ChevronRight />
