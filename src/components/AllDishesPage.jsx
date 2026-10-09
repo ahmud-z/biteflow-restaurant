@@ -6,12 +6,14 @@ import DishCard from "./DishCard";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { categoryList } from "../data/categoryList";
+import { useSearchParams } from "react-router";
 
 const AllDishesPage = () => {
     const [search, setSearch] = useState("");
+    const [searchParams] = useSearchParams();
+    const categoryFromUrl = searchParams.get("category") || "All";
 
-    const [selectedCategory, setSelectedCategory] = useState("All");
-
+    const [selectedCategory, setSelectedCategory] = useState(categoryFromUrl);
 
     const filteredDishes = dishes.filter((dish) => {
         const matchesSearch = dish.name
