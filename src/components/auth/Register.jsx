@@ -1,8 +1,49 @@
-import { Link } from "react-router";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router";
+import { useAuth } from "../../context/AuthContext";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 
-const Login = () => {
+const Register = () => {
+    const navigate = useNavigate();
+    const { register } = useAuth();
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+    });
+    const [error, setError] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleChange = (event) => {
+        setFormData((current) => ({
+            ...current,
+            [event.target.name]: event.target.value,
+        }));
+        setError("");
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        if (formData.password !== formData.confirmPassword) {
+            setError("Passwords do not match.");
+            return;
+        }
+
+        setIsSubmitting(true);
+
+        try {
+            register(formData);
+            navigate("/");
+        } catch (submitError) {
+            setError(submitError.message);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <div>
             <Navbar />
@@ -30,12 +71,12 @@ const Login = () => {
                         </h1>
 
                         <p className="mt-2 text-sm leading-6 text-stone-500">
-                            Log in to track orders and save your favorites.
+                            Create an account to track orders and save your favorites.
                         </p>
                     </div>
 
                     {/* Form */}
-                    <form className="flex flex-col gap-5 p-7 pt-3 sm:p-8 sm:pt-3">
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-5 p-7 pt-3 sm:p-8 sm:pt-3">
 
                         {/* name */}
                         <div>
@@ -49,7 +90,10 @@ const Login = () => {
                             <input
                                 id="name"
                                 name="name"
-                                type="name"
+                                type="text"
+                                value={formData.name}
+                                onChange={handleChange}
+                                required
                                 placeholder="John Doe"
                                 className="mt-2 h-12 w-full rounded-xl border border-orange-100 bg-[#fffaf5] px-4 text-sm text-stone-800 outline-none transition placeholder:text-stone-400 focus:border-[#f4511e] focus:bg-white focus:ring-2 focus:ring-orange-100"
                             />
@@ -69,6 +113,9 @@ const Login = () => {
                                 id="email"
                                 name="email"
                                 type="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                required
                                 placeholder="you@example.com"
                                 className="mt-2 h-12 w-full rounded-xl border border-orange-100 bg-[#fffaf5] px-4 text-sm text-stone-800 outline-none transition placeholder:text-stone-400 focus:border-[#f4511e] focus:bg-white focus:ring-2 focus:ring-orange-100"
                             />
@@ -87,32 +134,53 @@ const Login = () => {
                                 id="password"
                                 name="password"
                                 type="password"
+                                value={formData.password}
+                                onChange={handleChange}
+                                minLength="6"
+                                required
                                 placeholder="••••••••"
                                 className="mt-2 h-12 w-full rounded-xl border border-orange-100 bg-[#fffaf5] px-4 text-sm text-stone-800 outline-none transition placeholder:text-stone-400 focus:border-[#f4511e] focus:bg-white focus:ring-2 focus:ring-orange-100"
                             />
                         </div>
 
-                        {/* Forgot Password */}
-                        {/* <div className="-mt-1 flex justify-end">
-                        <button
-                            type="button"
-                            className="text-xs font-bold text-[#f4511e] transition hover:text-[#dc4218]"
-                        >
-                            Forgot password?
-                        </button>
-                    </div> */}
+                        <div>
+                            <label
+                                htmlFor="confirmPassword"
+                                className="text-sm font-bold text-stone-700"
+                            >
+                                Confirm password
+                            </label>
 
-                        {/* Login Button */}
+                            <input
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                type="password"
+                                value={formData.confirmPassword}
+                                onChange={handleChange}
+                                minLength="6"
+                                required
+                                placeholder="••••••••"
+                                className="mt-2 h-12 w-full rounded-xl border border-orange-100 bg-[#fffaf5] px-4 text-sm text-stone-800 outline-none transition placeholder:text-stone-400 focus:border-[#f4511e] focus:bg-white focus:ring-2 focus:ring-orange-100"
+                            />
+                        </div>
+
+                        {error && (
+                            <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-600">
+                                {error}
+                            </p>
+                        )}
+
                         <button
                             type="submit"
+                            disabled={isSubmitting}
                             className="h-12 w-full rounded-xl bg-[#f4511e] font-bold text-white shadow-md shadow-orange-100 transition hover:bg-[#dc4218] hover:shadow-lg active:scale-[0.99]"
                         >
-                            Create account
+                            {isSubmitting ? "Creating account..." : "Create account"}
                         </button>
 
                         {/* Register */}
                         <p className="pt-1 text-center text-sm text-stone-400">
-                            Already signin?{" "}
+                            Already signed in?{" "}
                             <Link to={"/login"}
                                 className="font-bold text-[#f4511e] transition hover:text-[#dc4218]"
                             >
@@ -129,4 +197,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;

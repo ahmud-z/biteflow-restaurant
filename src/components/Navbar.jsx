@@ -2,11 +2,13 @@ import { useState } from "react";
 import { ShoppingBag, Menu, X, UtensilsCrossed } from "lucide-react";
 import { Link } from 'react-router';
 import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const { itemCount } = useCart();
+    const { user, logout } = useAuth();
 
     return (
         <header className="sticky top-0 z-40  shadow-xs bg-white backdrop-blur-md">
@@ -39,15 +41,29 @@ const Navbar = () => {
 
                 {/* Right Actions */}
                 <div className="flex items-center gap-2 sm:gap-3">
-                    {/* Login */}
-                    <Link to={"/login"} className="hidden rounded-full px-3 py-2 text-sm font-semibold text-stone-600 hover:bg-orange-50 sm:block">
-                        Login
-                    </Link>
-
-                    {/* Register */}
-                    <Link to={"/register"} className="hidden rounded-full bg-[#f4511e] px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-orange-200 hover:bg-[#e94a1b] sm:block">
-                        Register
-                    </Link>
+                    {user ? (
+                        <>
+                            <span className="hidden max-w-28 truncate text-sm font-semibold text-stone-600 sm:block">
+                                Hi, {user.name}
+                            </span>
+                            <button
+                                type="button"
+                                onClick={logout}
+                                className="hidden rounded-full bg-[#f4511e] px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-orange-200 hover:bg-[#e94a1b] sm:block"
+                            >
+                                Log out
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            <Link to={"/login"} className="hidden rounded-full px-3 py-2 text-sm font-semibold text-stone-600 hover:bg-orange-50 sm:block">
+                                Login
+                            </Link>
+                            <Link to={"/register"} className="hidden rounded-full bg-[#f4511e] px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-orange-200 hover:bg-[#e94a1b] sm:block">
+                                Register
+                            </Link>
+                        </>
+                    )}
 
                     {/* Cart */}
                     <Link
@@ -80,42 +96,60 @@ const Navbar = () => {
             {menuOpen && (
                 <div className="border-t border-orange-100 bg-white px-5 py-4 lg:hidden">
                     <nav className="flex flex-col gap-1 text-sm font-semibold text-stone-700">
-                        <button
+                        <Link
+                            to="/"
                             onClick={() => setMenuOpen(false)}
                             className="rounded-lg px-3 py-2 text-left hover:bg-orange-50 hover:text-[#f4511e]"
                         >
                             Home
-                        </button>
+                        </Link>
 
-                        <button
+                        <Link
+                            to="/dishes"
                             onClick={() => setMenuOpen(false)}
                             className="rounded-lg px-3 py-2 text-left hover:bg-orange-50 hover:text-[#f4511e]"
                         >
                             Menu
-                        </button>
+                        </Link>
 
-                        <button
+                        <Link
+                            to="/about"
                             onClick={() => setMenuOpen(false)}
                             className="rounded-lg px-3 py-2 text-left hover:bg-orange-50 hover:text-[#f4511e]"
                         >
                             About Us
-                        </button>
+                        </Link>
 
-                        <button
+                        <Link
+                            to="/contact"
                             onClick={() => setMenuOpen(false)}
                             className="rounded-lg px-3 py-2 text-left hover:bg-orange-50 hover:text-[#f4511e]"
                         >
                             Contact
-                        </button>
+                        </Link>
 
                         <div className="my-2 border-t border-orange-100" />
 
-                        <button
-                            onClick={() => setMenuOpen(false)}
-                            className="rounded-lg px-3 py-2 text-left hover:bg-orange-50 hover:text-[#f4511e]"
-                        >
-                            Login / Register
-                        </button>
+                        {user ? (
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    logout();
+                                    setMenuOpen(false);
+                                }}
+                                className="rounded-lg px-3 py-2 text-left hover:bg-orange-50 hover:text-[#f4511e]"
+                            >
+                                Log out
+                            </button>
+                        ) : (
+                            <Link
+                                to="/login"
+                                onClick={() => setMenuOpen(false)}
+                                className="rounded-lg px-3 py-2 text-left hover:bg-orange-50 hover:text-[#f4511e]"
+                            >
+                                Login / Register
+                            </Link>
+                        )}
                     </nav>
                 </div>
             )}

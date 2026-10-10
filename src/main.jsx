@@ -12,13 +12,15 @@ import AboutPage from './pages/AboutPage.jsx'
 import CartPage from './components/CartPage.jsx'
 import { CartProvider } from './context/CartProvider.jsx'
 import ContactPage from "./pages/ContactPage.jsx";
+import { AuthProvider } from './context/AuthContext.jsx';
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <CartProvider>
-      <BrowserRouter>
-        <Routes>
+    <AuthProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <Routes>
           <Route path="/" element={<App />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/cart" element={<CartPage />} />
@@ -30,8 +32,9 @@ createRoot(document.getElementById('root')).render(
           <Route path='/dish' element={<DishLayout />}>
             <Route path=":slug" element={<DishDetailsPage />} />
           </Route>
-        </Routes>
-      </BrowserRouter>
-    </CartProvider>
+          </Routes>
+        </BrowserRouter>
+      </CartProvider>
+    </AuthProvider>
   </StrictMode>
 )
