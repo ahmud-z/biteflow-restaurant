@@ -130,7 +130,7 @@ const DishDetailsPage = () => {
                 <div className="grid items-start gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
                     {/* Image */}
                     <div className="relative">
-                        <div className="group relative aspect-square w-full max-w-[480px] overflow-hidden rounded-[2rem] border border-orange-100 bg-[#f4511e] p-1 shadow-sm">
+                        <div className="group relative aspect-square w-full max-w-[480px] overflow-hidden rounded-[2rem] border border-orange-100 bg-[#ff6536] p-1.5 shadow-sm">
                             <div className="relative h-full w-full overflow-hidden rounded-[1.5rem] bg-[#fff0e8]">
                                 <img
                                     src={dish.image}
@@ -282,9 +282,9 @@ const DishDetailsPage = () => {
 
                         <Link
                             to="/dishes"
-                            className="hidden items-center gap-1 text-sm font-bold text-[#f4511e] transition hover:gap-2 sm:flex"
+                            className="hidden items-center gap-1 text-sm font-bold text-[#f4511e] transition-all duration-200 hover:gap-2 sm:flex"
                         >
-                            View menu
+                            View full menu
                             <ArrowRight size={17} />
                         </Link>
                     </div>

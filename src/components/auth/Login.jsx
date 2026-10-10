@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const Login = () => {
     return (
         <main className="mx-auto grid min-h-[calc(100vh-72px)] max-w-6xl items-center gap-10 px-5 py-10 lg:grid-cols-2 lg:gap-16 lg:px-8">
@@ -89,12 +91,12 @@ const Login = () => {
                     {/* Register */}
                     <p className="pt-1 text-center text-sm text-stone-400">
                         New to BiteFlow?{" "}
-                        <button
-                            type="button"
+                        <Link
+                            to={"/register"}
                             className="font-bold text-[#f4511e] transition hover:text-[#dc4218]"
                         >
                             Create an account
-                        </button>
+                        </Link>
                     </p>
                 </form>
             </div>

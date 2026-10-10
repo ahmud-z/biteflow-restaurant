@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Search } from "lucide-react";
 import { Link } from "react-router";
 import { dishes } from "../data/dishes";
@@ -14,6 +14,13 @@ const AllDishesPage = () => {
     const categoryFromUrl = searchParams.get("category") || "All";
 
     const [selectedCategory, setSelectedCategory] = useState(categoryFromUrl);
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            // behavior: "smooth",
+        });
+    }, [categoryFromUrl]);
 
     const filteredDishes = dishes.filter((dish) => {
         const matchesSearch = dish.name

@@ -98,4 +98,126 @@ export const dishes = [
         desc: 'Silky caramel yogurt made fresh in our kitchen every morning.',
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqCXT-IgLRQapaR5sLqK_1D7yGcmz9yFEI-c4ZBx2wRhbJ2vK6_wouVJ0&s=10"
     },
+    {
+        id: 10,
+        slug: "chicken-biriyani",
+        name: "Chicken Biriyani",
+        category: "Lunch",
+        price: 220,
+        rating: 4.8,
+        reviews: 124,
+        desc: "Fragrant basmati rice cooked with tender chicken, aromatic spices, and traditional biriyani masala.",
+        image: "https://www.cubesnjuliennes.com/wp-content/uploads/2020/07/Chicken-Biryani-Recipe-500x500.jpg"
+    },
+    {
+        id: 11,
+        slug: "beef-tehari",
+        name: "Beef Tehari",
+        category: "Lunch",
+        price: 200,
+        rating: 4.8,
+        reviews: 96,
+        desc: "Old Dhaka-style tehari with tender beef, fragrant rice, green chilies, and rich spices.",
+        image: "https://images.deliveryhero.io/image/fd-bd/LH/sxb9-listing.jpg?width=512&height=384&quality=45"
+    },
+    {
+        id: 12,
+        slug: "morog-polao",
+        name: "Morog Polao",
+        category: "Dinner",
+        price: 260,
+        rating: 4.7,
+        reviews: 74,
+        desc: "Traditional chicken polao featuring aromatic rice, tender chicken, and warm Bengali spices.",
+        image: "https://static.wixstatic.com/media/05c508_761b7feac76b4f9f9b6825f936a41ed0~mv2.jpg/v1/fill/w_980,h_980,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/05c508_761b7feac76b4f9f9b6825f936a41ed0~mv2.jpg"
+    },
+    {
+        id: 13,
+        slug: "kala-bhuna",
+        name: "Beef Kala Bhuna",
+        category: "Dinner",
+        price: 280,
+        rating: 4.9,
+        reviews: 112,
+        desc: "Slow-cooked beef with deeply roasted spices, rich gravy, and authentic Bengali flavors.",
+        image: "https://i.ytimg.com/vi/lPh2EM4DWAg/sddefault.jpg"
+    },
+    {
+        id: 14,
+        slug: "chicken-roast",
+        name: "Chicken Roast",
+        category: "Dinner",
+        price: 180,
+        rating: 4.7,
+        reviews: 68,
+        desc: "Juicy chicken roasted in a creamy, aromatic Bengali-style sauce with fragrant spices.",
+        image: "https://c.ndtvimg.com/2019-12/5f6fg0l8_keraal-roast-chicken_625x300_14_December_19.jpg"
+    },
+    {
+        id: 15,
+        slug: "plain-paratha",
+        name: "Plain Paratha",
+        category: "Breakfast",
+        price: 20,
+        rating: 4.5,
+        reviews: 54,
+        desc: "Freshly prepared golden paratha with a soft center and lightly crispy layers.",
+        image: "https://5.imimg.com/data5/SELLER/Default/2024/10/462290164/YS/MB/BP/234988258/frozen-paratha-500x500.jpg"
+    },
+    {
+        id: 16,
+        slug: "dim-paratha",
+        name: "Egg Paratha",
+        category: "Breakfast",
+        price: 60,
+        rating: 4.6,
+        reviews: 47,
+        desc: "Flaky paratha filled with seasoned egg, onions, green chilies, and fresh herbs.",
+        image: "https://bongtrend.com/wp-content/uploads/2023/11/Morning-Breakfast-Egg-Paratha-Recipe-1.jpg"
+    },
+    {
+        id: 17,
+        slug: "dal-puri",
+        name: "Dal Puri",
+        category: "Evening Snacks",
+        price: 25,
+        rating: 4.5,
+        reviews: 39,
+        desc: "Crispy golden puri stuffed with seasoned lentils and traditional spices.",
+        image: "https://instamart-media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_960,w_960//InstamartAssets/Receipes/dal_poori.webp"
+    },
+    {
+        id: 18,
+        slug: "chicken-samosa",
+        name: "Chicken Samosa",
+        category: "Evening Snacks",
+        price: 35,
+        rating: 4.6,
+        reviews: 63,
+        desc: "Crunchy pastry filled with seasoned chicken, onions, and a delicious blend of spices.",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHbGlZ4OyhOb6JTYsdRuAicKLjnGDoAPhOGDn2PkPDkR-fWmiJLrNPO5-i&s=10"
+    },
+    {
+        id: 19,
+        slug: "chotpoti",
+        name: "Dhaka Chotpoti",
+        category: "Evening Snacks",
+        price: 100,
+        rating: 4.8,
+        reviews: 91,
+        desc: "A popular street-food favorite made with yellow peas, potatoes, tamarind, and spices.",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6byBHBvmRMNyUzfk-8EKkE7jCEkaM7fmz2GTRt3AuIG4kvAV7uDJrBgng&s=10"
+    },
+    {
+        id: 20,
+        slug: "jhal-muri",
+        name: "Jhal Muri",
+        category: "Evening Snacks",
+        price: 50,
+        rating: 4.6,
+        reviews: 58,
+        desc: "Crunchy puffed rice tossed with mustard oil, onions, green chilies, chanachur, and spices.",
+        image: "https://img-global.cpcdn.com/recipes/55322837c5b2c843/680x781cq80/jhal-muri-jhal-muri-recipe-in-hindi-recipe-main-photo.jpg"
+    },
+
 ]

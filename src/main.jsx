@@ -11,6 +11,8 @@ import AllDishesPage from './components/AllDishesPage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
 import CartPage from './components/CartPage.jsx'
 import { CartProvider } from './context/CartProvider.jsx'
+import ContactPage from "./pages/ContactPage.jsx";
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -22,6 +24,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/cart" element={<CartPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/contact" element={<ContactPage />} />
 
           <Route path="/dishes" element={<AllDishesPage />} />
           <Route path='/dish' element={<DishLayout />}>

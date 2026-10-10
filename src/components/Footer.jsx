@@ -1,4 +1,5 @@
 import { Heart, Mail, Phone } from "lucide-react";
+import { Link } from "react-router";
 
 const Footer = () => {
     return (
@@ -29,12 +30,9 @@ const Footer = () => {
                     </h3>
 
                     <div className="flex flex-col gap-3 text-sm text-orange-100/60">
-                        <button
-                            onClick={() => go("menu")}
-                            className="text-left hover:text-white"
-                        >
+                        <Link to={'#'} className="text-left hover:text-white">
                             Our menu
-                        </button>
+                        </Link>
 
                         <button
                             onClick={() => go("profile")}
@@ -63,7 +61,7 @@ const Footer = () => {
                         <br />
                         Old Dhaka, Bangladesh
                         <br />
-                        Open daily 8 AM – 11 PM
+                        Open daily 10:00 AM – 11:00 PM
                     </p>
                 </div>
 
